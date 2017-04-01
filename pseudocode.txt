@@ -1,0 +1,78 @@
+Start Game Sequence:
+  Start the game by running `ruby battleship.rb`. This implies that this file will be the runner. Perhaps instantiate the most important classes on this file.
+
+  The first thing that happens is the user sees a message with an input for a user interaction. "Welcome to BATTLESHIP", "Would you like to (p)lay, read the (i)nstructions, or (q)uit? >" The user's input will determine the next method to call: (a) play_game, (b) read_intructions, or (c)quit_program.
+
+    play_game #enter the ship layout
+
+    read_instructions #presented with short explanation of how the game is played, then return to the Start Game Sequence screen.
+
+    quit_program #terminate program, return to REPL.
+
+Computer Ship Placement:
+  That first thing that happens is the computer needs to randomly place its ships according to these rules:
+    1. ships cannot wrap around the board
+    2. ships cannot overlap
+    3. ships can be laid either vertically or horizontally
+    4. coordinates must correspond to the first and last units of the ship. (i.e. a two unit ship consists of two index units, a three unit ship consists of three index units)
+
+Player Ship Placement:
+  After the computer places its ships, the player should see:
+    I have laid out my ships on the grid.
+    You now need to layout your two ships.
+    The first is two units long and the
+    second is three units long.
+    The grid has A1 at the top left and D4 at the bottom right.
+
+    Enter the squares for the two unit ship: A1 A2, which places the two element ship on squares A1 and A2. Then it asks for the coordinates for the three-unit ship.
+
+    Validate Player ship positions. If an invalid placement is chosen, the game should display a message explaining which of the rules their choice violated, then ask them to re-enter all coordinates for that specific ship. Retain previous placements.
+
+    #seems like ship positions will need to be stored for each game. I'll need to #decide how to break up these positions into classes. The `board` should be #its own class, and the ship positions for the computer and player need to #have one class or each their own class. When implementing a multiple player #game, though, we'll probably want each Player to have its own class. So, #perhaps every unique player should be generated from a default Player class. #And the computer class ought to be its own unique class.
+
+    Once the Player Ship Placement is finished, the user can enter the main game flow phase: "All your base are belong to us." Ready Player One
+
+Game Flow (Main Phase)
+  During the main game players take turns firing at one another by selecting positions on the grid to attack.
+
+    The current game view will frequently need to display the current game view. Use a simple ASCII text grid of letters (to indicate rows) and numbers (to indicate columns).
+
+    ===========
+    . 1 2 3 4
+    A
+    B
+    C
+    D
+    ===========
+
+    #each row could be displayed as a string, or multiple rows as one string. Indices would need to be mapped and altered according to ship placement or shots fired. Maybe keep the grid as arrays and then join the array for printing to the REPL.
+
+Player Shot Sequence:
+  Once the ships are laid out the game starts with the Player Shoots Sequence.
+    1. Display the map from the current player's point of view.
+    2. Prompt the player for a position on which to fire.
+    3. Indicate whether that shot was a hit or a miss and display an updated map.
+
+    #every shot needs to update the map. I need to hold state on many points on the map until the program determines that the game is over. Each point on the map begins as either nil, or as a unit of a ship. Each shot towards a point on the grid changes it from nil to either h or m.
+
+    #once a point on the grid is fired upon it cannot be fired upon again. So, there needs to be an array that holds valid positions to fire upon and when a position is fired upon it needs to be removed from the array of valid firing positions.
+
+    #once player has fired, prompt player to press ENTER.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Personal Extensions/Add-ons:
+  Perhaps the user can quit the program at any time, or pause the game in progress to read the instructions.
