@@ -8,4 +8,6 @@ class Cell
     @has_ship = false
     @hit_count = 0
   end
+
+  
 end
