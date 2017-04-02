@@ -10,13 +10,5 @@ class BattleshipTest < Minitest::Test
     assert_equal Battleship, b.class
   end
 
-  def test_user_input_receipt
-    b = Battleship.new
-    assert_nil b.user_input
 
-    b.welcome_message
-    refute_nil b.user_input
-  end
-
-  
 end

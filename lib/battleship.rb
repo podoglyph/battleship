@@ -3,51 +3,37 @@ require 'pry'
 require 'pry-state'
 
 class Battleship
-  attr_reader :user_input
+  attr_reader :player, :computer
 
   def initialize
-    user_input = nil
-    @user_input = user_input
+    @player = Player.new
+    @computer = Computer.new
     run
   end
 
-  def welcome_message
-    puts "Welcome to BATTLESHIP, Would you like to (p)lay, read the (i)nstructions, or (q)uit? >"
-    @user_input = gets.chomp.downcase
-    validate_input(user_input)
-  end
+  def welcome_prompt
+    puts Messages.welcome
+    user_input = gets.chomp.downcase
 
-  def validate_input(user_input)
-    v = ValidateInput.new
-    v.validate_start_up(user_input)
-
-    if v.instruct == "start_game"
+    if user_input == 'p' || user_input == 'play'
       start_game
-    elsif v.instruct == "show_instructions"
-      show_instructions
-    elsif v.instruct == "quit_game"
-      quit_game
+    elsif user_input == 'i' || user_input == 'instructions'
+      puts Messages.instructions
+    elsif user_input == 'q' || user_input == 'quit'
+      puts Messages.quit_game
     else
-      welcome_message
+      puts "Please enter a valid response."
+      welcome_prompt
     end
-
   end
 
   def start_game
-    puts "All your base are belong to us."
-  end
-
-  def show_instructions
-    puts "To play the game...do all this stuff."
-    return welcome_message
-  end
-
-  def quit_game
-    exit
+    puts "Please wait while the computer chooses its positions."
+    computer.place_ships
   end
 
   def run
-    welcome_message
+    welcome_prompt
   end
 
 end
