@@ -10,5 +10,10 @@ class GridTest < Minitest::Test
     assert_equal Grid, g.class
   end
 
+  def test_grid_is_created
+    g = Grid.new
+
+    assert_equal 4, g.game_grid.length
+  end
 
 end
