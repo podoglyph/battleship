@@ -10,9 +10,11 @@ class Grid
   end
 
   def create
-    #for 4X4 grid
-    game_grid = Array.new(4) { Array.new(4, Cell.new) }
-    binding.pry
+    game_grid = Array.new(4) {Array.new(4)}
+    4.times do |i|
+      game_grid[i].map! do |x|
+        x = Cell.new
+      end
+    end
   end
 end
-g = Grid.new
