@@ -12,8 +12,11 @@ class BattleshipTest < Minitest::Test
 
   def test_user_input_receipt
     b = Battleship.new
-    b.get_user_input
+    assert_nil b.user_input
 
-    assert_equal true, b.validate_responses(user_input)
+    b.welcome_message
+    refute_nil b.user_input
   end
+
+  
 end
