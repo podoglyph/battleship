@@ -3,14 +3,11 @@ require 'pry'
 require 'pry-state'
 
 class Battleship
-  attr_reader :user_input, :valid
+  attr_reader :user_input
 
   def initialize
     @user_input = user_input
-    valid = false
-    @valid = valid
     run
-
   end
 
   def welcome_message
@@ -20,17 +17,19 @@ class Battleship
   end
 
   def validate_input(user_input)
-    v = ValidateInput.new
-    v.validate_start_up(user_input)
-    if valid
-      #start_game
-      puts "Dino"
-    else
-      puts "Fuck all."
+    if not defined? v
+      v = ValidateInput.new
+      v.validate_start_up(user_input)
     end
-    #here is where I'd return to.
-    # come back true
-    # come back false
+
+    if v.valid
+      start_game
+    else
+      user_input = nil
+      v = nil
+      welcome_message
+    end
+
   end
 
   def start_game
@@ -42,4 +41,5 @@ class Battleship
   end
 
 end
+
 b = Battleship.new
