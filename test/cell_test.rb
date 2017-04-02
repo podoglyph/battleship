@@ -10,7 +10,7 @@ class CellTest < Minitest::Test
     assert_equal Cell, c.class
   end
 
-  def test_attributes_are_readeable
+  def test_attributes_are_readable
     c = Cell.new
 
     assert_equal false, c.has_ship
