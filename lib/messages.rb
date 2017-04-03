@@ -5,11 +5,21 @@ class Messages
   end
 
   def self.instructions
-    puts "To play the game...do all this stuff."
+    puts "To play the game...do all this stuff.\n Press ENTER to continue."
+    enter = gets.chomp
+    return if enter.empty?
   end
 
-  def self.quit
+  def self.quit_game
     puts "Goodbye."
+    print "."
+    sleep(0.4)
+    print "..."
+    sleep(0.4)
+    print "....."
+    sleep(0.4)
+    print "exit"
+    sleep(0.2)
     exit
   end
 end
