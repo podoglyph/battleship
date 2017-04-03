@@ -7,8 +7,7 @@ class Grid
   attr_reader :game_grid
 
   def initialize
-    game_grid = []
-    @game_grid = game_grid
+    @game_grid = []
     create
   end
 

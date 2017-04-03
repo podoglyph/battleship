@@ -6,7 +6,7 @@ class Battleship
   attr_reader :player, :computer
 
   def initialize
-    @player = Player.new
+    #@player = Player.new
     @computer = Computer.new
     run
   end
@@ -14,7 +14,7 @@ class Battleship
   def welcome_prompt
     puts Messages.welcome
     user_input = gets.chomp.downcase
-    
+
     if user_input == 'p' || user_input == 'play'
       start_game
     elsif user_input == 'i' || user_input == 'instructions'
