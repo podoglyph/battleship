@@ -3,11 +3,12 @@ require 'pry'
 require 'pry-state'
 
 class Cell
-  attr_reader :has_ship, :fired_upon, :x, :y
+  attr_reader :x, :y
+  attr_accessor :has_ship, :fired_upon
 
-  def initialize
+  def initialize(x, y)
     @has_ship = false
-    @fired_upon = nil
+    @fired_upon = ""
     @x = x
     @y = y
   end
