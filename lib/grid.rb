@@ -31,10 +31,10 @@ class Grid
   def create_grid_index
     rows = ("A".."D").to_a
     j = - 1
-    normalized_rows = rows.map {|x| x = j += 1 }
+    rows.map! {|x| x = j += 1 }
     #ex: ["A", "B", "C", "D"] becomes [0, 1, 2, 3]
     columns = (1..4).to_a
-    normalized_columns = columns.map {|x| x -= 1}
+    columns.map! {|x| x -= 1}
     #ex: [1, 2, 3, 4] becomes [0, 1, 2, 3]
   end
 
