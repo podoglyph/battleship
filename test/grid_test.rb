@@ -33,10 +33,14 @@ class GridTest < Minitest::Test
 
   def test_cell_locations_are_accurate
     g = Grid.new
-    #c = g.game_grid[0][0]
-    binding.pry
-    assert_equal 0, c.x
-    assert_equal 0, c.y
+    c = g.game_grid[0][0]
+    c1 = g.game_grid[1][1]
+
+    assert_instance_of Cell, c
+    assert_equal 1, c.x
+    assert_equal 1, c.y
+    assert_equal 2, c1.x
+    assert_equal 2, c1.y
   end
 
 
