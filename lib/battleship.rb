@@ -13,14 +13,14 @@ class Battleship
 
   def welcome_prompt
     puts Messages.welcome
-    user_input = gets.chomp.downcase
+    user_input = gets.chomp.upcase
 
-    if user_input == 'p' || user_input == 'play'
+    if user_input == 'P' || user_input == 'PLAY'
       start_game
-    elsif user_input == 'i' || user_input == 'instructions'
+    elsif user_input == 'I' || user_input == 'INSTRUCTIONS'
       puts Messages.instructions
       welcome_prompt
-    elsif user_input == 'q' || user_input == 'quit'
+    elsif user_input == 'Q' || user_input == 'QUIT'
       puts Messages.quit_game
     else
       puts "Please enter a valid response."
