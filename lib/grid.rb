@@ -21,6 +21,5 @@ class Grid
         element = Cell.new(i + 1, j)
       end
     end
-    #binding.pry
   end
 end
