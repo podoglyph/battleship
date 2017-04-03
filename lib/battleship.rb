@@ -14,11 +14,12 @@ class Battleship
   def welcome_prompt
     puts Messages.welcome
     user_input = gets.chomp.downcase
-
+    
     if user_input == 'p' || user_input == 'play'
       start_game
     elsif user_input == 'i' || user_input == 'instructions'
       puts Messages.instructions
+      welcome_prompt
     elsif user_input == 'q' || user_input == 'quit'
       puts Messages.quit_game
     else
@@ -29,7 +30,7 @@ class Battleship
 
   def start_game
     puts "Please wait while the computer chooses its positions."
-    computer.place_ships
+    #computer.place_ships
   end
 
   def run

@@ -12,6 +12,4 @@ class Messages
     puts "Goodbye."
     exit
   end
-
-
 end

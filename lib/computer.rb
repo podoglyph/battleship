@@ -12,5 +12,4 @@ class Computer
 
   end
 
-
 end
