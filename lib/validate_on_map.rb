@@ -8,13 +8,15 @@ class ValidateOnMap
     false
   end
 
-  private
-  def self.parse_coordinates(coordinates, ship_size)
+  def self.parse_coordinates(coordinates, ship_size, indices = false)
     if ship_size == 2
       first_cell, second_cell = [], []
       first_cell = coordinates[0..1].chars #["A", "1"]
       second_cell = coordinates[-2..-1].chars #["B", "1"]
       all_cells = first_cell.concat(second_cell)
+      if indices == true
+        return all_cells.each_slice(2).to_a
+      end
     end
     if ship_size == 3
       first_cell, second_cell, third_cell = [], [], []
@@ -22,6 +24,9 @@ class ValidateOnMap
       second_cell = coordinates[3..4].chars #["B", "1"]
       third_cell = coordinates[-2..-1].chars
       all_cells = first_cell.concat(second_cell).concat(third_cell)
+      if indices == true
+        return all_cells.each_slice(2).to_a
+      end
     end
     build_validation_range(all_cells)
   end
