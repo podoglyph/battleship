@@ -21,7 +21,7 @@ class Computer
   def two_ship_placement
     coordinates = "A1 B3"
     ship_size = 2
-    v = ValidateOnMap.parse_coordinates(coordinates, ship_size)
+    ValidateOnMap.parse_coordinates(coordinates, ship_size)
   end
 
   def run

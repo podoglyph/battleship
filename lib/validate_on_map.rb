@@ -4,7 +4,8 @@ require 'pry-state'
 class ValidateOnMap
 
   def self.validate_coordinate_positions?(all_cells, v_range)
-    true if all_cells.all?{ |x| v_range.include?(x)}
+    return true if all_cells.all?{ |x| v_range.include?(x)}
+    false
   end
 
   private
