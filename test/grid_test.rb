@@ -43,5 +43,4 @@ class GridTest < Minitest::Test
     assert_equal 2, c1.y
   end
 
-
 end
