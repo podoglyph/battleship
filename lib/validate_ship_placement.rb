@@ -4,13 +4,9 @@ require './lib/validate_on_map.rb'
 
 class ValidateShipPlacement
 
-  def two_ship_on_map(coordinates = "A1 B2", ship_size = 2)
-    ValidateOnMap.parse_coordinates(coordinates, ship_size)
-
-  end
-
-  def three_ship_on_map(coordinates = "A1 B1 B2", ship_size = 3)
-    ValidateOnMap.parse_coordinates(coordinates, ship_size)
+  def isolated_validation(single_set = nil)
+    #return single_set
+    
   end
 
   def two_ship_coordinates(coordinates = "A1 B2", ship_size = 2)
@@ -24,7 +20,7 @@ class ValidateShipPlacement
     #makes sure three_unit_ship is placed on consecutive cells
     #true asks for the coordinates as an array
     parsed_coordinates = ValidateOnMap.parse_coordinates(coordinates, ship_size, true)
-    map_coordinates_to_axes(parsed_coordinates)
+    isolated_validation(map_coordinates_to_axes(parsed_coordinates))
   end
 
   def map_coordinates_to_axes(parsed_coordinates)
@@ -38,8 +34,13 @@ class ValidateShipPlacement
     #[[0, 0], [1, 0], [1, 1]]
   end
 
+  def two_ship_on_map(coordinates = "A1 B2", ship_size = 2)
+    ValidateOnMap.parse_coordinates(coordinates, ship_size)
+  end
 
-
+  def three_ship_on_map(coordinates = "A1 B1 B2", ship_size = 3)
+    ValidateOnMap.parse_coordinates(coordinates, ship_size)
+  end
   # def create_grid_index
   #   rows = ("A".."D").to_a
   #   j = - 1
