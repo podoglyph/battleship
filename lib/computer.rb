@@ -19,11 +19,9 @@ class Computer
   end
 
   def two_ship_placement
-    ts_coordinates = "A1 B1"
+    coordinates = "A1 B9"
     ship_size = 2
-    # Validation(ts_coordinates, ship_size)
-    # Validation.validate_coordinate_positions?(all_cells, v_range)
-    # binding.pry
+    v = Validation.parse_coordinates(coordinates, ship_size)
   end
 
   def run
@@ -32,4 +30,3 @@ class Computer
   end
 
 end
-c = Computer.new
