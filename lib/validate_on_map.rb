@@ -1,7 +1,7 @@
 require 'pry'
 require 'pry-state'
 
-class Validation
+class ValidateOnMap
 
   def self.validate_coordinate_positions?(all_cells, v_range)
     true if all_cells.all?{ |x| v_range.include?(x)}

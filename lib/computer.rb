@@ -19,9 +19,9 @@ class Computer
   end
 
   def two_ship_placement
-    coordinates = "A1 B9"
+    coordinates = "A1 B3"
     ship_size = 2
-    v = Validation.parse_coordinates(coordinates, ship_size)
+    v = ValidateOnMap.parse_coordinates(coordinates, ship_size)
   end
 
   def run
