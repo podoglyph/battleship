@@ -16,29 +16,29 @@ class ValidateShipPlacement
   def two_ship_coordinates(coordinates = "A1 B2", ship_size = 2)
     #makes sure two_unit_ship is placed on consecutive cells
     #true asks for the coordinates as an array
-    ValidateOnMap.parse_coordinates(coordinates, ship_size, true)
-
-    puts "Lemonade"
+    parsed_coordinates = ValidateOnMap.parse_coordinates(coordinates, ship_size, true)
+    map_coordinates_to_axes(parsed_coordinates)
   end
 
   def three_ship_coordinates(coordinates = "A1 B1 B2", ship_size = 3)
     #makes sure three_unit_ship is placed on consecutive cells
     #true asks for the coordinates as an array
-    ValidateOnMap.parse_coordinates(coordinates, ship_size, true)
-
-
+    parsed_coordinates = ValidateOnMap.parse_coordinates(coordinates, ship_size, true)
+    map_coordinates_to_axes(parsed_coordinates)
   end
 
-  def map_coordinates_to_axes
+  def map_coordinates_to_axes(parsed_coordinates)
+    # parsed_coordinates = [["A", "1"], ["B", "1"], ["B", "2"]]
     rows = ("A".."D").to_a
     columns = ("1".."4").to_a
-    collected_coordinates = [["A", "1"], ["B", "1"], ["B", "2"]]
-    norm_coordinates = collected_coordinates.each do |x|
+    norm_coordinates = parsed_coordinates.each do |x|
       x[1] = columns.index(x[1])
       x[0] = rows.index(x[0])
     end
     #[[0, 0], [1, 0], [1, 1]]
   end
+
+
 
   # def create_grid_index
   #   rows = ("A".."D").to_a
