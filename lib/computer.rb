@@ -1,5 +1,5 @@
 require './lib/grid.rb'
-require './lib/validation.rb'
+require './lib/validate_on_map.rb'
 require 'pry'
 require 'pry-state'
 
@@ -11,22 +11,6 @@ class Computer
     @targeted_positions = []
     @two_unit_ships = 0
     @three_unit_ships = 0
-    run
-  end
-
-  def place_ships
-
-  end
-
-  def two_ship_placement
-    coordinates = "A1 B3"
-    ship_size = 2
-    ValidateOnMap.parse_coordinates(coordinates, ship_size)
-  end
-
-  def run
-    #place_ships
-    two_ship_placement
   end
 
 end
