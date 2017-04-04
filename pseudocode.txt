@@ -11,6 +11,7 @@ Start Game Sequence:
 
 Computer Ship Placement:
   That first thing that happens is the computer needs to randomly place its ships according to these rules:
+    **DONE the ship must be placed on the board
     1. ships cannot wrap around the board
     2. ships cannot overlap
     3. ships can be laid either vertically or horizontally

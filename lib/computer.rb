@@ -13,19 +13,10 @@ class Computer
     run
   end
 
-  # def place_ships
-  #   if two_unit_ships == 0
-  #     place_two_unit_ship
-  #   end
-  #
-  #   if two_unit_ships == 1 && three_unit_ships == 1
-  #     puts "The computer has placed its ships."
-  #   elsif two_unit_ships == 1 && three_unit_ships == 0
-  #     place_three_unit_ship
-  #   else
-  #     puts "Nothing's been placed."
-  #   end
-  # end
+  def place_ships
+
+  end
+  
 
   def run
     place_ships
