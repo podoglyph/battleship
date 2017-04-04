@@ -46,12 +46,8 @@ class Validation
   def run
     build_validation_range
     parse_coordinates(coordinates)
+    validate_coordinate_positions?(all_cells, v_range)
     create_normalized_index
   end
-  # def validate_coordinate_positions?(first_cell, second_cell)
-  #   ("A".."D").to_a.include?(first_cell[0])
-  #   ("A".."D").to_a.include?(second_cell[0])
-  #   ("1".."4").to_a.include?(first_cell[1])
-  #   ("1".."4").to_a.include?(second_cell[1])
-  # end
+
 end

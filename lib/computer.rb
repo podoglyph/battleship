@@ -1,4 +1,5 @@
 require './lib/grid.rb'
+require './lib/validation.rb'
 require 'pry'
 require 'pry-state'
 
@@ -16,10 +17,19 @@ class Computer
   def place_ships
 
   end
-  
+
+  def two_ship_placement
+    ts_coordinates = "A1 B1"
+    ship_size = 2
+    # Validation(ts_coordinates, ship_size)
+    # Validation.validate_coordinate_positions?(all_cells, v_range)
+    # binding.pry
+  end
 
   def run
-    place_ships
+    #place_ships
+    two_ship_placement
   end
 
 end
+c = Computer.new
