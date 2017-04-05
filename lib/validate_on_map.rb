@@ -3,6 +3,11 @@ require 'pry-state'
 
 class ValidateOnMap
 
+  def initialize(coordinates, ship_size)
+    @coordinates = coordinates
+    @ship_size = ship_size
+  end
+
   def self.validate_coordinate_positions?(all_cells, v_range)
     return true if all_cells.all?{ |x| v_range.include?(x)}
     false

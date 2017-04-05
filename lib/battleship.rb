@@ -6,7 +6,7 @@ class Battleship
   attr_reader :player, :computer
 
   def initialize
-    #@player = Player.new
+    @player = Player.new
     @computer = Computer.new
     run
   end
