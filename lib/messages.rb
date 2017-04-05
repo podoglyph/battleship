@@ -22,4 +22,10 @@ class Messages
     sleep(0.2)
     exit
   end
+
+  def self.place_ship_on_map
+    puts "Invalid ship placement. You must place your ship within grid boundaries.\n Press ENTER to continue."
+    enter = gets.chomp
+    return if enter.empty?
+  end
 end
