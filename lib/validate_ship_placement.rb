@@ -4,9 +4,16 @@ require './lib/validate_on_map.rb'
 
 class ValidateShipPlacement
 
-  def isolated_validation(single_set = nil)
-    #return single_set
-    
+  def isolated_validation(ship)
+    #ship ex. [[0, 0], [1, 1]]
+    x = ship[0][0]
+    y = ship[0][1]
+    connections = [[x - 1, y], [x, y - 1], [x + 1, y], [x, y + 1]]
+
+    rules = connections.delete_if do |i|
+      i.any? {|j| j < 0 || j > 3 }
+    end
+    #end deleted rules that are immediately broken
   end
 
   def two_ship_coordinates(coordinates = "A1 B2", ship_size = 2)
