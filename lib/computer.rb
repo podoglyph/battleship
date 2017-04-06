@@ -11,27 +11,28 @@ class Computer
     @targeted_positions = []
     @two_unit_ships = 0
     @three_unit_ships = 0
-    @comp_two_unit_ship = Array.new(2)
+    #@comp_two_unit_ship = Array.new(2)
+    #@comp_three_unit_ship = Array.new(3)
   end
 
   def place_ships
     if two_unit_ships < 1
       choose_unit_1
     end
-    # if three_unit_ships < 1
-    #   place_three_unit_ship
-    # end
+    if three_unit_ships < 1
+      choose_unit_1
+    end
     #handoff to player
   end
 
   def choose_unit_1
+    @unit_1 = []
     @x_range = ("A".."D").to_a
     @y_range = ("1".."4").to_a
     x_value = x_range.shuffle.first
     y_value = y_range.shuffle.first
     @x = x_range.index(x_value)
     @y = y_range.index(y_value)
-    @unit_1 = []
     @unit_1 = [x, y]
     select_possible_connections
   end
@@ -57,9 +58,13 @@ class Computer
 
   def build_two_unit_ship
     @two_unit_ships += 1
-    @comp_two_unit_ship = unit_1.concat(unit_2).each_slice(2).to_a
+    binding.pry
+    @comp_two_unit_ship = unit_1, unit_2 #.each_slice(2).to_a
+    binding.pry
   end
 
 end
 c = Computer.new
 c.place_ships
+binding.pry
+""
