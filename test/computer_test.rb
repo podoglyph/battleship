@@ -16,11 +16,11 @@ class ComputerTest < Minitest::Test
     assert c.respond_to?(:place_ships)
   end
 
-  def test_place_ships_increments_unit_ships
-    skip
+  def test_two_unit_ship_created
     c = Computer.new
+    c.place_ships
 
-    assert_equal "The computer has placed its ships.", c.place_ships
+    assert_equal 1, c.two_unit_ships
   end
 
 
