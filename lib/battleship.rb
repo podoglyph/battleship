@@ -30,7 +30,7 @@ class Battleship
 
   def start_game
     puts "Please wait while the computer chooses its positions."
-    #computer.place_ships
+    computer.place_ships
   end
 
   def run

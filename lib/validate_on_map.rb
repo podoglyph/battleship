@@ -22,7 +22,7 @@ class ValidateOnMap
       second_cell = @coordinates[-2..-1].chars #["B", "1"]
       @all_cells = first_cell.concat(second_cell)
       if indices == true
-        return all_cells.each_slice(2).to_a
+        return @all_cells.each_slice(2).to_a
       end
     end
     if @ship_size == 3
@@ -32,7 +32,7 @@ class ValidateOnMap
       third_cell = coordinates[-2..-1].chars
       @all_cells = first_cell.concat(second_cell).concat(third_cell)
       if indices == true
-        return all_cells.each_slice(2).to_a
+        return @all_cells.each_slice(2).to_a
       end
     end
     build_validation_range
