@@ -1,23 +1,24 @@
-require './lib/grid.rb'
-require './lib/validate_on_map.rb'
+require './lib/ship.rb'
 require 'pry'
 require 'pry-state'
 
 class Computer
-  attr_reader :targeted_positions, :two_unit_ships, :three_unit_ships, :unit_1, :unit_2, :unit_3, :x, :y, :x_range, :y_range, :rules, :rules_unit_2
+  attr_reader :targeted_positions, :two_unit_ship, :three_unit_ship, :unit_1, :unit_2, :unit_3, :x, :y, :x_range, :y_range, :rules, :rules_unit_2, :total_ships
 
   def initialize
-    #@grid = Grid.new
+    @total_ships = 0
+    create_ships
+    @name = "Computer"
     @targeted_positions = []
-    @two_unit_ships = 0
-    @three_unit_ships = 0
+    @two_unit_ship = Ship.new(@comp_two_unit_ship, 2, @name)
+    @three_unit_ship = Ship.new(@comp_three_unit_ship, 3, @name)
   end
 
-  def place_ships
-    if two_unit_ships < 1
+  def create_ships
+    if total_ships < 1
       choose_unit_1
     end
-    if three_unit_ships < 1
+    if total_ships < 2
       choose_unit_1
     end
   end
@@ -75,11 +76,6 @@ class Computer
     find_unit_3_first_or_last
   end
 
-  def build_two_unit_ship
-    @two_unit_ships += 1
-    @comp_two_unit_ship = unit_1, unit_2
-  end
-
   def find_unit_3_first_or_last
     @unit_3 = Array.new(2)
     if unit_1.first == unit_2.first
@@ -124,9 +120,14 @@ class Computer
     build_three_unit_ship
   end
 
+  def build_two_unit_ship
+    @comp_two_unit_ship = unit_1, unit_2
+    @total_ships += 1
+  end
+
   def build_three_unit_ship
-    @three_unit_ships += 1
     @comp_three_unit_ship = unit_1, unit_2, unit_3
+    @total_ships += 1
   end
 
 end

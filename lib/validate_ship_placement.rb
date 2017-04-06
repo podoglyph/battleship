@@ -20,7 +20,7 @@ class ValidateShipPlacement
 
     x = ship_unit_1[0] # x = 0
     y = ship_unit_1[1] # y = 2
-    #binding.pry
+
     x1 = ship_unit_2[0]
     y1 = ship_unit_2[1]
 
