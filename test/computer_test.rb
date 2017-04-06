@@ -23,5 +23,11 @@ class ComputerTest < Minitest::Test
     assert_equal 1, c.two_unit_ships
   end
 
+  def test_three_unit_ship_created
+    c = Computer.new
+    c.place_ships
+
+    assert_equal 1, c.three_unit_ships
+  end
 
 end
