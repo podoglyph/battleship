@@ -20,7 +20,6 @@ class Computer
     if three_unit_ships < 1
       choose_unit_1
     end
-
   end
 
   def choose_unit_1
