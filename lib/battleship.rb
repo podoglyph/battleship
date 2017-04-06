@@ -41,21 +41,19 @@ class Battleship
   end
 
   def locate_destination
-    row1 = @grid.game_grid[0]
+    # row1 = @grid.game_grid[0]
+    #
+    # row1.each do |i|
+    #   @coordinates = []
+    #   @coordinates << i.x << i.y
+    #   print coordinates
+    # end
 
-    row1.each do |i|
-      @coordinates = []
-      @coordinates << i.x << i.y
-      print coordinates
-    end
-
-    row2 = @grid.game_grid[1]
-
-    row3 = @grid.game_grid[2]
-
-    row4 = @grid.game_grid[3]
-
-    binding.pry
+    # row2 = @grid.game_grid[1]
+    #
+    # row3 = @grid.game_grid[2]
+    #
+    # row4 = @grid.game_grid[3]
   end
 
   def run
@@ -63,6 +61,3 @@ class Battleship
   end
 
 end
-b = Battleship.new
-binding.pry
-""

@@ -18,6 +18,7 @@ class BattleshipTest < Minitest::Test
   end
 
   def test_ship_can_read_its_destination
+    skip
     b = Battleship.new
 
     assert b.deploy_location
