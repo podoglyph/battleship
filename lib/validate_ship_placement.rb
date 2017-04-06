@@ -5,9 +5,9 @@ require './lib/validate_on_map.rb'
 class ValidateShipPlacement
   attr_reader :coordinates, :ship_size, :connections, :rules, :v_map
 
-  def initialize
-    @coordinates = "D4 C4"
-    @ship_size = 2
+  def initialize(coordinates, ship_size)
+    @coordinates = coordinates
+    @ship_size = ship_size
     @v_map = ValidateOnMap.new(coordinates, ship_size)
     run
   end
