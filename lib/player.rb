@@ -3,5 +3,5 @@ require 'pry'
 require 'pry-state'
 
 class Player
-
+  
 end

@@ -13,4 +13,9 @@ class Computer
     @three_unit_ships = 0
   end
 
+  def place_ships
+    
+
+  end
+
 end
