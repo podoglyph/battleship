@@ -1,6 +1,5 @@
 require './lib/grid.rb'
 require 'pry'
-require 'pry-state'
 
 class Ship
   attr_reader :ship, :hits, :location

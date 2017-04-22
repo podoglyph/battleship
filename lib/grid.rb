@@ -1,6 +1,5 @@
 require './lib/cell.rb'
 require 'pry'
-require 'pry-state'
 
 class Grid
   attr_reader :game_grid

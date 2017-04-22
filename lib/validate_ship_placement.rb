@@ -1,5 +1,4 @@
 require 'pry'
-require 'pry-state'
 require './lib/validate_on_map.rb'
 
 class ValidateShipPlacement
@@ -13,13 +12,11 @@ class ValidateShipPlacement
   end
 
   def isolated_validation(ship_units)
-    #ship_units [[0, 0], [1, 0]]
-    #[[0, 2], [0, 1]]
     ship_unit_1 = ship_units[0]
     ship_unit_2 = ship_units[1]
 
-    x = ship_unit_1[0] # x = 0
-    y = ship_unit_1[1] # y = 2
+    x = ship_unit_1[0]
+    y = ship_unit_1[1]
 
     x1 = ship_unit_2[0]
     y1 = ship_unit_2[1]

@@ -1,6 +1,5 @@
 require './lib/ship.rb'
 require 'pry'
-require 'pry-state'
 
 class Computer
   attr_reader :targeted_positions, :two_unit_ship, :three_unit_ship, :unit_1, :unit_2, :unit_3, :x, :y, :x_range, :y_range, :rules, :rules_unit_2, :total_ships

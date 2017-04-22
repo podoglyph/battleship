@@ -1,6 +1,4 @@
-#require './lib/required_files.rb'
 require 'pry'
-require 'pry-state'
 
 class Cell
   attr_reader :x, :y

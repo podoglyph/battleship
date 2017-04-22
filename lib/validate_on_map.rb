@@ -1,6 +1,5 @@
 require './lib/messages.rb'
 require 'pry'
-require 'pry-state'
 
 class ValidateOnMap
 
