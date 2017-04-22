@@ -21,3 +21,6 @@ class Grid
     end
   end
 end
+g = Grid.new
+binding.pry
+""

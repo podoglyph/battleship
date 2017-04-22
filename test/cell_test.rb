@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './lib/test_helper.rb'
 require './lib/cell.rb'
 
 class CellTest < Minitest::Test

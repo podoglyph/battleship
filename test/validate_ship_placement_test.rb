@@ -1,6 +1,5 @@
+require './lib/test_helper.rb'
 require './lib/validate_ship_placement.rb'
-require 'minitest/autorun'
-require 'minitest/pride'
 
 class ValidateShipPlacementTest < Minitest::Test
 
