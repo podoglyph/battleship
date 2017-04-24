@@ -18,7 +18,7 @@ module Messages
     sleep(0.4)
     print "....."
     sleep(0.4)
-    print "exit"
+    print "Exit"
     sleep(0.2)
     exit
   end
@@ -36,5 +36,5 @@ module Messages
   def start_game_message
     puts "Please wait while the computer chooses its positions."
   end
-  
+
 end

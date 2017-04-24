@@ -8,6 +8,7 @@ class Battleship
   def initialize
     @player = Player.new
     @grid = Grid.new
+    welcome_prompt
   end
 
   def welcome_prompt
