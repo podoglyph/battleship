@@ -1,4 +1,4 @@
-require './lib/test_helper.rb'
+require './test/test_helper.rb'
 require './lib/grid.rb'
 
 class GridTest < Minitest::Test
@@ -11,18 +11,21 @@ class GridTest < Minitest::Test
 
   def test_grid_is_created
     g = Grid.new
+    g.create
 
     assert_equal 4, g.game_grid.length
   end
 
   def test_create_cells_creates_cells
     g = Grid.new
+    g.create
 
     refute_nil g.game_grid[0][0]
   end
 
   def test_cells_in_grid_are_unique
     g = Grid.new
+    g.create
 
     refute_equal g.game_grid[0][0], g.game_grid[0][1]
     refute_equal g.game_grid[1][0], g.game_grid[0][1]
@@ -32,14 +35,15 @@ class GridTest < Minitest::Test
 
   def test_cell_locations_are_accurate
     g = Grid.new
+    g.create
     c = g.game_grid[0][0]
     c1 = g.game_grid[1][1]
 
     assert_instance_of Cell, c
-    assert_equal 1, c.x
-    assert_equal 1, c.y
-    assert_equal 2, c1.x
-    assert_equal 2, c1.y
+    assert_equal 0, c.x
+    assert_equal 0, c.y
+    assert_equal 1, c1.x
+    assert_equal 1, c1.y
   end
 
 end
