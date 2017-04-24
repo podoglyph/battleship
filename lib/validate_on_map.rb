@@ -1,7 +1,4 @@
-require './lib/messages.rb'
-
 module ValidateOnMap
-  include Messages
 
   def verify_coordinates?(input)
     parse(input).all? { |x| grid_range.include?(x)}
