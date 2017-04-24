@@ -1,4 +1,4 @@
-require './lib/test_helper.rb'
+require './test/test_helper.rb'
 require './lib/validate_ship_placement.rb'
 
 class ValidateShipPlacementTest < Minitest::Test

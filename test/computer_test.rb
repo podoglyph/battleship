@@ -1,4 +1,4 @@
-require './lib/test_helper.rb'
+require './test/test_helper.rb'
 require './lib/required_files.rb'
 
 class ComputerTest < Minitest::Test

@@ -1,4 +1,4 @@
-require './lib/test_helper.rb'
+require './test/test_helper.rb'
 require './lib/cell.rb'
 
 class CellTest < Minitest::Test
@@ -28,7 +28,6 @@ class CellTest < Minitest::Test
 
   def test_cell_can_take_a_hit
     c = Cell.new(0, 1)
-
     c.fired_upon = "h"
 
     assert_equal "h", c.fired_upon
@@ -39,7 +38,6 @@ class CellTest < Minitest::Test
 
     assert_equal 0, c.x
     assert_equal 1, c.y
-
   end
 
 end
