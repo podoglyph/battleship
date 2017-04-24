@@ -1,5 +1,4 @@
 require './lib/messages.rb'
-require 'pry'
 
 module ValidateOnMap
   include Messages
