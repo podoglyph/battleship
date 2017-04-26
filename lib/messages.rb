@@ -37,7 +37,7 @@ module Messages
     puts "Please wait while the computer chooses its positions."
   end
 
-  def place_your_ships
+  def place_your_ships_message
     puts "I have laid out my ships on the grid.
     You now need to layout your two ships.
     The first is two units long and the

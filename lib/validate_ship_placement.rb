@@ -1,32 +1,38 @@
-module ValidateShipPlacement
+require './lib/messages.rb'
 
-  def position_ship(computer, ship_size)
+module ValidateShipPlacement
+  include Messages
+
+  def computer_first_cell(computer, ship_size)
     ship_position = []
     cell = computer.grid_positions[rand(0..3)].sample
-    if cell.has_ship == true
-      position_ship(computer, ship_size)
+    if check_cell_is_unoccupied(computer, ship_size, cell) == false
+      computer_first_cell(computer, ship_size)
+    else
+      mark_ship(cell)
+      ship_position << cell
+      second_cell(computer, ship_size, cell, ship_position)
     end
-    mark_ship(cell)
-    ship_position << cell
+  end
 
-    if ship_size == 2
-      next_position = next_cell_position(cell)
-      next_cell = retrieve_cell_object(computer, next_position)
-      mark_ship(next_cell)
-      ship_position << next_cell
-    elsif ship_size == 3
-      next_position = next_cell_position(cell)
-      next_cell = retrieve_cell_object(computer, next_position)
-      mark_ship(next_cell)
-      ship_position << next_cell
-      last_position = validate_third_unit(ship_position)
-      last_cell = retrieve_cell_object(computer, last_position)
-      mark_ship(last_cell)
-      ship_position << last_cell
+  def second_cell(current_player, ship_size, cell, ship_position)
+    valid_positions = next_cell_position(cell)
+    next_position = remove_occupied_cells(current_player, valid_positions)
+    next_cell = retrieve_cell_object(current_player, ship_size, next_position)
+    mark_ship(next_cell)
+    ship_position << next_cell
+    if ship_size > 2 && ship_position.length < 3
+      third_cell(current_player, ship_size, ship_position)
     end
-
     ship_position
+  end
 
+  def third_cell(current_player, ship_size, ship_position)
+    valid_positions = validate_third_unit(ship_position)
+    third_position = remove_occupied_cells(current_player, valid_positions)
+    third_unit_cell = retrieve_cell_object(current_player, ship_size, third_position)
+    mark_ship(third_unit_cell)
+    ship_position << third_unit_cell
   end
 
   private
@@ -42,7 +48,18 @@ module ValidateShipPlacement
     valid = possible.reject do |i|
       i.any? {|j| j < 0 || j > 3 }
     end
-    choose_next_position(valid)
+    valid
+  end
+
+  def remove_occupied_cells(current_player, valid_positions)
+    grid = current_player.grid_positions.flatten
+    valid_positions.delete_if do |coordinate|
+      grid.find do |cell|
+        if cell.x == coordinate.first && cell.y == coordinate.last && cell.has_ship == true
+        end
+      end
+    end
+    choose_next_position(valid_positions)
   end
 
   def choose_next_position(valid)
@@ -80,17 +97,32 @@ module ValidateShipPlacement
     valid = possible.reject do |i|
       i.any? {|j| j < 0 || j > 3 }
     end
-    choose_next_position(valid)
+    valid
   end
 
-  def retrieve_cell_object(computer, valid_position)
-    grid = computer.grid_positions.flatten
-    grid.find do |cell|
+  def retrieve_cell_object(current_player, ship_size, valid_position)
+
+    grid = current_player.grid_positions.flatten
+    next_cell = grid.find do |cell|
       cell.x == valid_position.first && cell.y == valid_position.last
+    end
+    if check_cell_is_unoccupied(current_player, ship_size, next_cell) == false
+      computer_first_cell(current_player, ship_size)
+    else
+      next_cell
+    end
+  end
+
+  def check_cell_is_unoccupied(current_player, ship_size, cell)
+    if cell.has_ship && current_player.class == Computer
+      false
+    else
+      cell
     end
   end
 
   def mark_ship(cell)
-    cell = cell.has_ship = true
+    cell.has_ship = true
   end
+
 end

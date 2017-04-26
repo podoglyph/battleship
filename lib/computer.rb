@@ -14,9 +14,9 @@ class Computer
 
   def place_ships(ship_size)
     if ship_size == 2
-      @two_unit_ship = position_ship(self, ship_size)
+      @two_unit_ship = computer_first_cell(self, ship_size)
     else
-      @three_unit_ship = position_ship(self, ship_size)
+      @three_unit_ship = computer_first_cell(self, ship_size)
     end
   end
 
