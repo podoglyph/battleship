@@ -6,6 +6,7 @@ class Grid
 
   def initialize
     @game_grid = []
+    create
   end
 
   def create
@@ -18,5 +19,6 @@ class Grid
       end
     end
   end
-  
+
+
 end

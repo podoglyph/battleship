@@ -1,5 +1,6 @@
 require './test/test_helper.rb'
 require './lib/validate_ship_placement.rb'
+require './lib/grid.rb'
 
 class ValidateShipPlacementTest < Minitest::Test
 
@@ -9,6 +10,8 @@ class ValidateShipPlacementTest < Minitest::Test
     assert_equal ValidateShipPlacement, v.class
   end
 
-  
+  def test_choose_first_position
+    
+  end
 
 end
