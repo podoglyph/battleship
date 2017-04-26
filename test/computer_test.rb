@@ -33,13 +33,13 @@ class ComputerTest < Minitest::Test
     assert_equal true, third_unit
   end
 
-  # def test_placements_of_multiple_ships
-  #   c = Computer.new
-  #   position1 = c.place_ships(2)
-  #   position2 = c.place_ships(3)
-  #
-  #   assert_equal c.two_unit_ship, position1
-  #   assert_equal c.three_unit_ship, position2
-  # end
+  def test_placements_of_multiple_ships
+    c = Computer.new
+    position1 = c.place_ships(2)
+    position2 = c.place_ships(3)
+    
+    assert_equal c.two_unit_ship, position1
+    assert_equal c.three_unit_ship, position2
+  end
 
 end
