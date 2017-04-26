@@ -4,7 +4,7 @@ require 'pry'
 
 class Computer
   include ValidateShipPlacement
-  attr_reader :computer_grid, :grid_positions
+  attr_reader :computer_grid, :grid_positions, :two_unit_ship, :three_unit_ship
 
   def initialize
     @total_ships = 0
@@ -13,7 +13,11 @@ class Computer
   end
 
   def place_ships(ship_size)
-    position_ship(self, ship_size)
+    if ship_size == 2
+      @two_unit_ship = position_ship(self, ship_size)
+    else
+      @three_unit_ship = position_ship(self, ship_size)
+    end
   end
 
 
