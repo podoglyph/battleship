@@ -30,6 +30,7 @@ class Battleship
   def start_game
     start_game_message
     @computer = Computer.new
+    place_your_ships
   end
 
 end
