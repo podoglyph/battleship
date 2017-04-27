@@ -33,13 +33,12 @@ class ComputerTest < Minitest::Test
     assert_equal Cell, third_unit.class
   end
 
-  # def test_placements_of_multiple_ships
-  #   c = Computer.new
-  #   c.place_ships(2)
-  #   c.place_ships(3)
-  #
-  #   assert_instance_of Array, c.two_unit_ship
-  #   assert_equal Array, c.three_unit_ship.last
-  # end
+  def test_placements_of_multiple_ships
+    c = Computer.new
+    c.place_ships(2)
+    c.place_ships(3)
+    assert_instance_of Array, c.two_unit_ship
+    assert_instance_of Cell, c.three_unit_ship.last
+  end
 
 end

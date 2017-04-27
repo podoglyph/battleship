@@ -15,6 +15,15 @@ module ValidateShipPlacement
     end
   end
 
+  def player_first_cell(player, location, ship_size)
+    location = location.split(" ")
+    coordinates = parse_location(location)
+  end
+
+  def parse_location(location)
+    
+  end
+
   def second_cell(current_player, ship_size, cell, ship_position)
     valid_positions = next_cell_position(cell)
     next_position = remove_occupied_cells(current_player, valid_positions)
@@ -31,7 +40,14 @@ module ValidateShipPlacement
     valid_positions = validate_third_unit(ship_position)
     third_position = remove_occupied_cells(current_player, valid_positions)
     third_unit_cell = retrieve_cell_object(current_player, ship_size, third_position)
-    mark_ship(third_unit_cell)
+
+    if check_cell_is_unoccupied(current_player, ship_size, third_unit_cell) == false
+      third_cell(current_player, ship_size, ship_position)
+    else
+      third_unit_cell = check_cell_is_unoccupied(current_player, ship_size, third_unit_cell)
+      mark_ship(third_unit_cell)
+    end
+
     ship_position << third_unit_cell
   end
 
@@ -106,11 +122,7 @@ module ValidateShipPlacement
     next_cell = grid.find do |cell|
       cell.x == valid_position.first && cell.y == valid_position.last
     end
-    if check_cell_is_unoccupied(current_player, ship_size, next_cell) == false
-      computer_first_cell(current_player, ship_size)
-    else
-      next_cell
-    end
+    next_cell
   end
 
   def check_cell_is_unoccupied(current_player, ship_size, cell)

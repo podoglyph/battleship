@@ -47,4 +47,14 @@ module Messages
     Enter the squares for the two-unit ship:"
   end
 
+  def place_your_second_ship_message
+    puts "I have laid out my ships on the grid.
+    You now need to layout your two ships.
+    The first is two units long and the
+    second is three units long.
+    The grid has A1 at the top left and D4 at the bottom right.
+
+    Enter the squares for the three-unit ship:"
+  end
+
 end
