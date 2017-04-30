@@ -38,7 +38,6 @@ class GridTest < Minitest::Test
     g.create
     c = g.game_grid[0][0]
     c1 = g.game_grid[1][1]
-    binding.pry
     assert_instance_of Cell, c
     assert_equal 0, c.x
     assert_equal 0, c.y

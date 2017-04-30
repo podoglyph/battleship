@@ -12,13 +12,9 @@ class PositionsTest < Minitest::Test
   def test_valid_coordinates
     positions = Positions.new
 
-    letters = positions.letters
-    numbers = positions.numbers
-    positions.combine_positions(letters, numbers)
-
-    expected = ["A1", "B2", "C3", "D4"]
+    positions.combine_positions
+    expected = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"]
     actual = positions.valid_coordinates
-
     assert_equal expected, actual
   end
 
