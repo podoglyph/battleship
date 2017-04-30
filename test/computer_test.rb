@@ -11,17 +11,9 @@ class ComputerTest < Minitest::Test
 
   def test_create_ship
     c = Computer.new
-    actual = c.get_valid_next_position
+    actual = c.place_ship(2)
     expected = c.two_unit_ship
     assert_equal expected, actual
-  end
-
-  def test_mark_ship_on_grid
-    c = Computer.new
-
-    c.get_valid_next_position
-    c.two_unit_ship
-
   end
 
 end

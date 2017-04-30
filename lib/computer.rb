@@ -14,6 +14,10 @@ class Computer
     @computer_grid = Grid.new
   end
 
+  def place_ship(ship_size)
+    get_valid_next_position
+  end
+
   def get_first_position
     select_random_coordinate(computer_grid)
   end

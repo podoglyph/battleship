@@ -1,7 +1,8 @@
 module Validator
 
   def select_random_coordinate(grid)
-    grid.locations.sample
+    not_occupied = remove_occupied(grid)
+    not_occupied.sample
   end
 
   def generate_next_possible(first_position, grid)
@@ -44,7 +45,28 @@ module Validator
 
   def choose_next_position(next_valid, index, grid)
     position = next_valid.sample
-    grid.locations[index + position]
+    choice = grid.locations[index + position]
+    check_if_occupied(next_valid, index, grid, choice, position)
+  end
+
+  def check_if_occupied(next_valid, index, grid, choice, position)
+    grid.game_grid.each do |cell|
+      if cell.location == position && cell.has_ship
+        next_valid.delete(position)
+        choose_next_position(next_valid, index, grid)
+      end
+    end
+    choice
+  end
+
+  def remove_occupied(grid)
+    not_occupied = []
+    grid.game_grid.each do |cell|
+      if cell.has_ship == false
+        not_occupied << cell.location
+      end
+    end
+    not_occupied
   end
 
 end

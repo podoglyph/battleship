@@ -27,11 +27,11 @@ class Battleship
     end
   end
 
-  # def start_game
-  #   start_game_message
-  #   @computer = Computer.new
-  #   player.place_ships(2)
-  #   player.place_ships(3)
-  # end
+  def start_game
+    start_game_message
+    @computer = Computer.new
+    computer.place_ship(2)
+    computer.place_ship(3)
+  end
 
 end
