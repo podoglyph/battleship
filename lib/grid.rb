@@ -12,15 +12,8 @@ class Grid
   end
 
   def create
-    @game_grid = Array.new(4) {Array.new(4)}
-    k = -1
-    4.times do |i|
-      j = - 1
-      @game_grid[i].map! do |element|
-        j += 1
-        k += 1
-        element = Cell.new(i, j, locations[k])
-      end
+    @locations.map do |x|
+      @game_grid << Cell.new(x)
     end
   end
 
