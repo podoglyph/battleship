@@ -9,21 +9,11 @@ class ComputerTest < Minitest::Test
     assert_equal Computer, c.class
   end
 
-  def test_first_position
-    c = Computer.new
-
-    positions = c.computer_grid.locations
-    actual = c.get_first_position
-    expected = positions.any? { |e| e == actual  }
-    assert expected
-  end
-
   def test_create_ship
     c = Computer.new
-
     actual = c.get_valid_next_position
     expected = c.two_unit_ship
-    
+    binding.pry
     assert_equal expected, actual
   end
 

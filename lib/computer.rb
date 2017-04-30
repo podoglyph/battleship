@@ -19,7 +19,7 @@ class Computer
 
   def get_valid_next_position
     first_position = get_first_position
-    next_position = generate_next_possible(first_position, non_occupied_cells)
+    next_position = generate_next_possible(first_position, computer_grid)
     create_ship(first_position, next_position)
   end
 
