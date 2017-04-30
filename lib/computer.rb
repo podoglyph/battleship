@@ -1,9 +1,11 @@
 require './lib/ship.rb'
 require './lib/validator.rb'
+require './lib/ship_placer.rb'
 require 'pry'
 
 class Computer
   include Validator
+  include ShipPlacer
   attr_reader :computer_grid, :two_unit_ship, :three_unit_ship, :non_occupied_cells
 
   def initialize
@@ -13,8 +15,7 @@ class Computer
   end
 
   def get_first_position
-    @non_occupied_cells = remove_occupied_positions(computer_grid)
-    select_random_coordinate(non_occupied_cells)
+    select_random_coordinate(computer_grid)
   end
 
   def get_valid_next_position
@@ -27,6 +28,7 @@ class Computer
     ship = []
     ship << first_position
     ship << next_position
+    mark_ship_on_grid(ship, computer_grid)
     @two_unit_ship = ship
   end
 

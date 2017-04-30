@@ -1,12 +1,7 @@
 module Validator
 
-  def select_random_coordinate(non_occupied_cells)
-    cell = non_occupied_cells.sample
-    cell.location
-  end
-
-  def remove_occupied_positions(grid)
-    grid.game_grid.delete_if { |cell| cell.has_ship}
+  def select_random_coordinate(grid)
+    grid.locations.sample
   end
 
   def generate_next_possible(first_position, grid)
@@ -16,7 +11,7 @@ module Validator
   def check_indices(first_position, grid)
     valid_index_1 = check_index_1(first_position)
     next_valid = check_index_2(first_position, valid_index_1)
-    index = get_first_position_index(first_position, non_occupied_cells)
+    index = get_first_position_index(first_position, grid)
     choose_next_position(next_valid, index, grid)
   end
 
@@ -44,7 +39,7 @@ module Validator
   end
 
   def get_first_position_index(first_position, grid)
-    grid.find_index {|cell| cell.location == first_position}
+    grid.game_grid.find_index {|cell| cell.location == first_position}
   end
 
   def choose_next_position(next_valid, index, grid)

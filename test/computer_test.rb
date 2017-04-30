@@ -13,8 +13,15 @@ class ComputerTest < Minitest::Test
     c = Computer.new
     actual = c.get_valid_next_position
     expected = c.two_unit_ship
-    binding.pry
     assert_equal expected, actual
+  end
+
+  def test_mark_ship_on_grid
+    c = Computer.new
+
+    c.get_valid_next_position
+    c.two_unit_ship
+
   end
 
 end
