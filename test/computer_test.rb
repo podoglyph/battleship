@@ -16,4 +16,13 @@ class ComputerTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_create_second_ship
+    c = Computer.new
+
+    c.place_ship(2)
+    actual = c.place_ship(3)
+    expected = c.three_unit_ship
+    assert_equal expected, actual
+  end
+
 end

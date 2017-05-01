@@ -15,26 +15,37 @@ class Computer
   end
 
   def place_ship(ship_size)
-    get_valid_next_position
+    get_first_position(ship_size)
   end
 
-  def get_first_position
-    select_random_coordinate(computer_grid)
+  def get_first_position(ship_size)
+    first_position = select_random_coordinate(computer_grid)
+    get_valid_next_position(first_position, ship_size)
   end
 
-  def get_valid_next_position
-    first_position = get_first_position
+  def get_valid_next_position(first_position, ship_size)
     next_position = generate_next_possible(first_position, computer_grid)
-    create_ship(first_position, next_position)
+    if ship_size == 2
+      create_ship(first_position, next_position)
+    else
+      ordered_positions = order_partial_ship_positions(first_position, next_position)
+      third_position = select_valid_third_position(ordered_positions, computer_grid)
+      create_ship(first_position, next_position, third_position)
+    end
   end
 
-  def create_ship(first_position, next_position)
+  def create_ship(first_position, next_position, third_position = nil)
     ship = []
     ship << first_position
     ship << next_position
+    if third_position
+      ship << third_position
+      mark_ship_on_grid(ship, computer_grid)
+      @three_unit_ship = ship
+      return three_unit_ship
+    end
     mark_ship_on_grid(ship, computer_grid)
     @two_unit_ship = ship
   end
-
 
 end
