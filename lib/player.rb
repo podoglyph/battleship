@@ -3,22 +3,26 @@ require 'pry'
 
 class Player
   include Messages
+  include Validator
+  include ShipPlacer
+
+  attr_reader :grid, :two_unit_ship, :three_unit_ship
 
   def initialize
     @total_ships = 0
-    @name = "Computer"
-    @grid_positions = Grid.new.game_grid
+    @name = "Player 1"
+    @grid = Grid.new
   end
 
-  # def place_ships(ship_size)
-  #   place_your_ships_message
-  #   input = gets.chomp.upcase
-  #   if verify_coordinates?(input)
-  #     player_first_cell(self, input, ship_size)
-  #     place_your_second_ship_message
-  #   else
-  #     place_ship_on_map_message
-  #   end
-  # end
+  def place_ships(input, ship_size)
+    if ship_size == 2
+      mark_ship_on_grid(input, grid)
+      @two_unit_ship = input
+    elsif ship_size == 3
+      mark_ship_on_grid(input, grid)
+      @three_unit_ship = input
+    end
+  end
+
 
 end

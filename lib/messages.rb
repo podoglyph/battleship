@@ -57,4 +57,8 @@ module Messages
     Enter the squares for the three-unit ship:"
   end
 
+  def invalid_ship_not_on_map_message
+    puts "Those coordinates aren't on the map. Please choose again."
+  end
+
 end

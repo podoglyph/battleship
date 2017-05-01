@@ -130,4 +130,12 @@ module Validator
     choices.sample
   end
 
+  def verify_coordinates(input)
+    if input.all? { |i| grid.locations.include?(i) } == false
+      invalid_ship_not_on_map_message
+    else
+      true
+    end
+  end
+
 end

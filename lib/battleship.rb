@@ -3,6 +3,8 @@ require 'pry'
 
 class Battleship
   include Messages
+  include Validator
+
   attr_reader :player, :computer
 
   def initialize
@@ -32,6 +34,29 @@ class Battleship
     @computer = Computer.new
     computer.place_ship(2)
     computer.place_ship(3)
+    player_choice_sequence
+  end
+
+  def player_choice_two_ship
+    place_your_ships_message
+    input = gets.chomp.upcase
+    input = input.split(" ")
+    if verify_coordinates(input) == false
+      player_choice_two_ship
+    else
+      player.place_ships(input, 2)
+    end
+  end
+
+  def player_choice_three_ship
+    place_your_second_ship_message
+    input = gets.chomp.upcase
+    input = input.split(" ")
+    if verify_coordinates(input) == false
+      player_choice_three_ship
+    else
+      player.place_ships(input, 3)
+    end
   end
 
 end

@@ -9,6 +9,10 @@ module ShipPlacer
       if cell.location == ship[1]
         cell.has_ship = true
       end
+
+      if cell.location == ship[2]
+        cell.has_ship = true
+      end
     end
   end
 
