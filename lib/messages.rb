@@ -48,17 +48,15 @@ module Messages
   end
 
   def place_your_second_ship_message
-    puts "I have laid out my ships on the grid.
-    You now need to layout your two ships.
-    The first is two units long and the
-    second is three units long.
-    The grid has A1 at the top left and D4 at the bottom right.
-
-    Enter the squares for the three-unit ship:"
+    puts "Enter the squares for the three-unit ship:"
   end
 
   def invalid_ship_not_on_map_message
     puts "Those coordinates aren't on the map. Please choose again."
+  end
+
+  def shoot_message
+    puts "Enter one position to fire upon."
   end
 
 end

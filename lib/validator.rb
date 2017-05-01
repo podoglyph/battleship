@@ -22,7 +22,7 @@ module Validator
       next_valid = [1, -4, 4]
     elsif first_position[1] == "4"
       next_valid = [-1, -4, 4]
-    elsif first_position[1] == "2" or "3"
+    elsif first_position[1] == "2" || first_position[1] == "3"
       next_valid = [-1, 1, -4, 4]
     end
     next_valid
@@ -130,7 +130,7 @@ module Validator
     choices.sample
   end
 
-  def verify_coordinates(input)
+  def verify_coordinates(input, grid)
     if input.all? { |i| grid.locations.include?(i) } == false
       invalid_ship_not_on_map_message
     else

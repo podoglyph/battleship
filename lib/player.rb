@@ -1,5 +1,5 @@
-require './lib/required_files.rb'
-require 'pry'
+require './lib/validator.rb'
+require './lib/ship_placer.rb'
 
 class Player
   include Messages
@@ -23,6 +23,5 @@ class Player
       @three_unit_ship = input
     end
   end
-
 
 end

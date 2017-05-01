@@ -34,17 +34,18 @@ class Battleship
     @computer = Computer.new
     computer.place_ship(2)
     computer.place_ship(3)
-    player_choice_sequence
+    player_choice_two_ship
   end
 
   def player_choice_two_ship
     place_your_ships_message
     input = gets.chomp.upcase
     input = input.split(" ")
-    if verify_coordinates(input) == false
+    if verify_coordinates(input, player.grid) == false
       player_choice_two_ship
     else
       player.place_ships(input, 2)
+      player_choice_three_ship
     end
   end
 
@@ -52,11 +53,21 @@ class Battleship
     place_your_second_ship_message
     input = gets.chomp.upcase
     input = input.split(" ")
-    if verify_coordinates(input) == false
+    if verify_coordinates(input, player.grid) == false
       player_choice_three_ship
     else
       player.place_ships(input, 3)
+      game_sequence
     end
   end
 
+  def game_sequence
+    shoot_message
+    game_map = GameMap.new.print_map("Computer")
+    input = gets.chomp.upcase
+
+  end
+
 end
+
+b = Battleship.new
