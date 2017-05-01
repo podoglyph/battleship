@@ -17,7 +17,6 @@ class PlayerTest < Minitest::Test
     input2 = input2.split(" ")
     player.place_ships(input1, 2)
     player.place_ships(input2, 3)
-    binding.pry
     assert_equal player.two_unit_ship, input1
     assert_equal player.three_unit_ship, input2
   end

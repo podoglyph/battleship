@@ -1,7 +1,7 @@
 module Map
 
   def map(player)
-    [top_bottom, location, "\n", row("A", 0, player), "\n", row("B", 1, player), "\n", row("C", 2, player), "\n", row("D", 3, player), top_bottom]
+    [top_bottom, number, "\n", row("A", 0, player), "\n", row("B", 1, player), "\n", row("C", 2, player), "\n", row("D", 3, player), top_bottom]
   end
 
   def row(position, row, player)
@@ -24,7 +24,7 @@ module Map
     "=" * 14
   end
 
-  def location
+  def number
     ".  1  2  3  4  "
   end
 

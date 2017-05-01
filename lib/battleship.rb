@@ -1,5 +1,4 @@
 require './lib/required_files.rb'
-require 'pry'
 
 class Battleship
   include Messages
